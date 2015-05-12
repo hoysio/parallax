@@ -1,0 +1,252 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>JUICE DESIGN</title>
+
+<!--////////////////////////////////////////////-->
+<script src="http://code.jquery.com/jquery-2.1.3.min.js"></script>
+<link rel="stylesheet" href="style.css">
+<script type="text/javascript">
+$(function(){
+$(window).on('scroll',function(){
+    var scrollpx = $(this).scrollTop();
+    //var background_scroll  = -scrollpx/40;
+    //var wave_scroll = -scrollpx*1.5;
+	//var wave_scroll_rotate = scrollpx + 'deg';/*回転*/
+    //var te0_scroll  = -scrollpx*0.4;/*浮上*/
+   // $('.background').css({'background-position-y':background_scroll});
+    //$('.wave').css({'margin-top':wave_scroll, 'transform':'rotate('+wave_scroll_rotate+')'});
+    //$('.te0').css({'margin-top':te0_scroll});
+	//$('.te1').css({'margin-top':te0_scroll});
+	$('#scroll').text('scroll : ' + scrollpx + 'px');
+});
+
+/*te0,1を飛び出して表示させるよ*/
+<!--tobidasu-->
+var showFlag0 = false;
+var showFlag1 = false;
+var te0 = $('.te0');
+     te0.css('right', '-500px');
+var te1 = $('.te1');   
+     te1.css('display','none'); 
+var click =$('.click');	 
+	 click.css('display','none');
+	var showFlag0 = false;
+	var showFlag1 = false;
+    
+    $(window).scroll(function () {
+		//スクロールが430-に達したらte0を下から表示
+        if ($(this).scrollTop() > 430 ) {
+            if (showFlag0 == false) {
+			    te0.stop().animate({'right' : '100px'}, 1000); //1000はスピード,早い方が遅く上がる.
+				showFlag0 = true;
+			}
+        } 
+		//スクロールが600-に達したらte1,clickを左から表示
+		if ($(this).scrollTop() > 660 ){
+             if (showFlag0 == true) {
+                showFlag1 = true;
+               te0.fadeOut();
+             te1.fadeIn();	
+			 click.fadeIn(); 
+			 }
+        } 
+    });
+/*   //スクロールしてトップ
+    topBtn.click(function () {
+        $('body,html').animate({
+            scrollTop: 0
+        }, 1000);
+        return false;
+    });
+*/
+});<!--tobidasufin-->
+</script>
+</head>
+<!--////////////////////////////////////////////-->
+
+<!--ここからbody-->
+<body style="">
+ 
+<div class="background"> 
+
+<div id="header">
+        <nav> 
+        <ul>
+			<li><a>HOME</a></li>
+			<li><a>WORK</a></li>
+			<li><a>NEWS</a></li>
+			<li><a>ABOUTUS</a></li>
+		</ul>
+        </nav>
+</div><!--header-->
+
+<div id="scroll">scroll : 0px
+</div><!--scroll-->
+
+
+<!--                ここからHOME               -->
+  <div class="red">
+    <section id="1">
+    <h1>JUICE DESIGN</h1>
+        <a>革新的なインターフェイスを世界に発信して参ります。</a>       
+    </section> 
+     <div class="ogi-l">
+    <img src="ogi-l.png"  width="360" height="360"/>
+    </div>  
+    <div class="ogi-r">
+    <img src="ogi-r.png"  width="360" height="360"/>
+    </div>   
+  </div> <!--red-->
+  
+<!--                 ここからSUI                -->
+  <div class="green">
+  <section id="2">
+  <h2>Shiluoet<br />
+User<br />
+Interface</h2>
+
+<h3>あなたの手が、優れたインターフェイスに！<br />
+フリーハンドでリモート操作できるインターフェイス</h3>
+<br />
+<a>技術の進歩は、映画『マイノリティ・リポート』の世界を超えました。グローブは不要。<br />
+３Ｄモーションカメラが、手のシルエットをリアルタイムに検出し、投影します。ページを表示させると、リンクには「つまめるピン」が重ね表示されます。そのため、何も持たずにピンをつまむだけでボタン操作することができます。</a>
+<a>手指のシルエット（またはスケルトン）を使って、非接触でコンピュータを操作します。<br />
+つまんでクリックという斬新な入力方式は視覚と触覚のフィードバックをもたらし、非接触・遠隔での操作性を大幅に向上させます。</a>
+  </section>
+  <!--parallaxについて-->
+   <div class=" click parallax">
+  <div class="click">
+    <p><img src="click.png"/></p>
+    <p>&nbsp;</p>
+  </div>
+  </div>
+  <div class=" te0 parallax">
+        <div class="te0">      
+        <img src="te0.png" />
+        </div>         
+  </div> 
+  <div class=" te1 parallax">
+        <div class="te1">
+        <img src="te1.png" />
+        </div>
+  </div> 
+  <div class="pin parallax">
+        <div class="pin">
+        <img src="pin.png"/> 
+        </div>
+  </div>
+  </div><!--green-->
+  
+<!--                  ここからnews               -->
+  <div class="pink">
+  <h2>What's New</h2>
+  <section id="3">
+  <h3>6-SXSW 2015参加</h3>
+  <a>2015.03.15（sun）から03.18（wed）まで</a>
+  <a>会場にて披露したSUIアプリケーションをご覧ください。</a>
+   <iframe width="560" height="315" src="https://www.youtube.com/embed/2y-NIZ7S6qs" frameborder="0" allowfullscreen></iframe>
+  <p>2015 South By Southwest Interactive Festival JUICEDESIGN -HANDY PACMAN×SILHOUETTE USER INTERFACE-</p>
+   </section>
+   <!--<div id="youtube">
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/2y-NIZ7S6qs" frameborder="0" allowfullscreen></iframe>
+  <p>2015 South By Southwest Interactive Festival JUICEDESIGN -HANDY PACMAN×SILHOUETTE USER INTERFACE-</p>
+ </div>-->
+ <div class="archive">
+ </div>
+  </div><!--pink-->
+  
+<!--                 　ここからAbout Us                 　-->
+  <div class="white">
+  <p>&nbsp;</p>
+  <h2>About Us</h2>
+  <section id="5">
+  <h3>Silhouette User Interface<br />
+ Just One <br />
+Swift Motion!!</h3><br /><br />
+
+  <a>SUIを皮切りにジェスチャーコントロール界隈の変革が我々の使命です。<br />
+企業様、個人の方とオープンイノベーションを図って参りたいと希望しております。</a>
+  </section>
+  
+  <table>
+<tbody>
+<tr>
+<td>会社名</td><td>株式会社JUICE DESIGN</td>
+</tr>
+
+<tr>
+<td>社名<br>由来</td><td>"JUICE"は、Japan User Interface &amp; Computer Entertainmentの略。 <br />
+なお、"juiced"には、英語で"excited（ワクワクする）"という意味があります。</td>
+</tr>
+
+<tr>
+<td>東京<br>支社</td><td>〒108-0014  <br />
+東京都港区芝5丁目29番20号 クロスオフィス三田</td>
+</tr>
+
+<tr>
+<td>電話<br>番号</td><td>080-3438-250O<br />
+英字Oは数字の0です。</td>
+</tr>
+
+<tr>
+<td>設立</td><td>2014年7月25日</td>
+</tr>
+
+<tr>
+<td>資本金</td><td>900万円</td>
+</tr>
+
+<tr>
+<td>代表者</td><td>代表取締役　諫山太郎</td>
+</tr>
+
+<tr>
+<td>Email</td><td>isayama＠juiced.co.jp</td>
+</tr>
+
+<tr>
+<td>取引<br>銀行</td><td>三井住友銀行　五反田支店　8504885</td>
+</tr>
+
+<tr>
+<td>会計<br>税務</td><td>税理士法人シリウス　大西一史</td>
+</tr>
+
+<tr>
+<td>事業<br>内容</td><td>１．ユーザインタフェースのデザイン事業
+<br>
+２．次世代コンピュータの企画・設計・開発・保守・賃貸・販売業務
+<br>
+３．アプリケーションソフトウェア開発・保守・賃貸・販売業務
+<br>
+４．コンピュータ・ソフトウェア関連著作権・特許権の譲渡・ライセンス業務
+<br>
+５．上記各号に附帯関連する一切の事業
+</td>
+</tr>
+</tbody></table>
+
+<div class="earth parallax"><!--wave-earth -->
+        <div class="earth">
+        <img src="earth.png" width="20%"
+         /> 
+        </div>
+    </div>
+  </div><!--white-->
+    
+
+
+ <footer id="footer">
+  <p>Copyright © 株式会社JUICE DESIGN All Rights Reserved.</p>
+ </footer>
+ 
+
+</div><!--background-->
+
+ 
+
+ 
+</body></html>
